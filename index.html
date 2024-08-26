@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <link rel="shortcut icon" type="x-icon" href="logo.png">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Balsamiq Sans', cursive;
+            background: url('download.jpg') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            color: white;
+            position: relative;
+            overflow-y: auto;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            border-radius: 20px;
+            border-color: #000000;
+            background: linear-gradient(#f683f2, #fa5f90, #fc7373);
+        }
+
+        nav {
+            padding: 15px 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 20cm;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        nav .nav-links a {
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 1em;
+            transition: color 0.3s;
+        }
+
+        nav .nav-links a:hover {
+            color: #ff0055;
+        }
+
+        .top-right-buttons {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .top-right-buttons a {
+            padding: 10px 20px;
+            margin-left: 10px;
+            font-size: 1em;
+            color: white;
+            background-color: #28a745;
+            border-radius: 2px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            cursor: pointer;
+        }
+
+        .top-right-buttons a:nth-child(2) {
+            background-color: #17a2b8;
+        }
+
+        .top-right-buttons a:nth-child(3) {
+            background-color: #ffc107;
+        }
+
+        .top-right-buttons a:hover {
+            opacity: 0.8;
+        }
+
+        .container {
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 40px;
+            border-radius: 15px;
+            position: absolute;
+            position: relative;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            max-width: 500px;
+            font-family: "Arial", sans-serif;
+        }
+
+        .logo {
+            width: 150px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+        }
+
+        .neon-button {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            color: #fff;
+            text-decoration: none;
+            background: #ff00ff;
+            border: 2px solid #ff00ff;
+            border-radius: 5px;
+            box-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 15px #ff00ff, 0 0 20px #ff00ff;
+            transition: filter 0.3s, box-shadow 0.3s;
+        }
+
+        .neon-button:hover {
+            box-shadow: 0 0 10px #ff00ff, 0 0 25px #ff00ff, 0 0 35px #ff00ff, 0 0 45px #ff00ff;
+            background-color: rgba(255, 0, 255, 0.2);
+        }
+
+        .text-container {
+            text-align: justify;
+            background-color: rgba(0, 0, 0, 0.1);
+            color: #000000;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 15px;
+            animation: slideIn 1s ease-out;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        .slide-in-left {
+        transform: translateX(-100%);
+        opacity: 0;
+        animation: slideInLeft 1.5s ease-out forwards;
+        }
+
+        @keyframes slideInLeft {
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        }
+        
+
+        .section-offset {
+            padding-top: 0px;
+            margin-top: -60px;
+            
+        }
+        h2{
+            color: #000000;
+            padding: 20px;
+            border: 20px;
+            
+            
+        }
+
+        .section {
+            height: 100vh;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+
+        .zoom-in {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+            font-size: auto;
+            text-align: justify;
+            width: auto;
+        }
+
+        .zoom-in.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .zoom-in.delay-1 {
+            transition-delay: 0.5s;
+        }
+
+        .zoom-in.delay-2 {
+            transition-delay: 1s;
+        }
+
+        .zoom-in.delay-3 {
+            transition-delay: 1.5s;
+        }
+
+        .zoom-in.delay-4 {
+            transition-delay: 2s;
+        }
+    
+        .team-member {
+        display: flex;
+        align-items: top;
+        position: relative;
+        margin-bottom: 40px;
+        padding: 20px;
+        background-color: rgba(0, 0, 0, 0.1);
+        border-radius: 15px;
+        animation: appear linear;
+        animation-timeline: view();
+        animation-range: entry 0% cover 40%;
+        }
+
+        .team-member:nth-child(even) {
+        flex-direction: row-reverse;
+        }
+
+        .team-photo {
+        width: 250px;
+        height: 250px;
+        border-radius: 10%;
+        margin: 0 30px; /* Adjust the margin for spacing */
+        object-fit: cover;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .team-info {
+        max-width: 500px;
+        font-size: 1.2em;
+        margin-left: 250px; /* Adjust the margin for spacing */
+        margin-right: 200px;
+        }
+
+        .team-info h3 {
+        font-size: 1.5em;
+        text-align: left;
+        text-transform: uppercase;
+        color: #000000;
+        
+    
+        }
+
+        .team-info p {
+        margin: 1px 0 0 0; /* Adjust the margin for spacing */
+        text-align: left;
+        color: #000000;
+    }
+        @keyframes appear {
+            from {
+            opacity: 0;
+            clip-path: inset(100% 100% 0 0);
+            }
+            to {
+            opacity: 1;
+            clip-path: inset(0 0 0 0);
+            }
+        }
+        
+
+    </style>
+</head>
+
+<body>
+    <br>
+    <nav>
+        <div class="nav-links">
+            <a href="#home">HOME</a>
+            <a href="#companyInfo">COMPANY INFORMATION</a>
+            <a href="#about">TEAM</a>
+            <a href="index3.html">CONTACT US</a>
+        </div>
+    </nav><br>
+
+    <div class="container" id="home">
+        <img src="logo.png" alt="Company Logo" class="logo">
+        <h1>Welcome to Our Company</h1>
+        <p>We are glad to have you here!</p>
+        <a href="index2.html" class="neon-button">Please Click here to create lead</a>
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+    <section id="companyInfo" class="section-offset">
+        <h2 >COMPANY INFORMATION:</h2>
+
+        <div class="text-container zoom-in delay-1">
+            <p ><strong>SMCompany:</strong> is a leading provider of high-quality computer-related products, offering a comprehensive range of hardware and software solutions to meet the diverse needs of our customers. From cutting-edge laptops and desktops to essential peripherals and accessories, we cater to both individual users and large-scale enterprises. Our commitment to excellence ensures that every product we offer meets the highest standards of performance, reliability, and value, making us a trusted partner in the technology industry.</p>
+        </div><br>
+
+        <div class="text-container zoom-in delay-2">
+            <p>At <strong>SMCompany</strong>, we understand the ever-evolving nature of technology and strive to stay ahead of the curve by continuously updating our product portfolio with the latest innovations. Whether you're a tech enthusiast looking for the newest gaming setup or a business seeking efficient IT infrastructure, we have the expertise and inventory to fulfill your requirements. Our knowledgeable team is always on hand to provide personalized recommendations and support, ensuring that you find the perfect solution for your needs.</p>
+        </div><br>
+
+        <div class="text-container zoom-in delay-3">
+            <p>In addition to our extensive product offerings, <strong>SMCompany</strong> is dedicated to providing exceptional customer service. We believe that our relationship with our customers goes beyond a simple transaction, which is why we offer comprehensive after-sales support, including installation services, troubleshooting, and repairs. Our goal is to ensure that your experience with us is seamless from start to finish, and that you have access to the resources you need to keep your systems running smoothly.</p>
+        </div><br>
+
+        <div class="text-container zoom-in delay-4">
+            <p>As we continue to grow and expand our reach, <strong>SMCompany</strong> remains committed to maintaining our core values of integrity, innovation, and customer satisfaction. We take pride in being a reliable source for all your computer-related needs and look forward to helping you achieve your goals with our top-notch products and services. Whether you're upgrading your personal computer or outfitting an entire office, you can trust <strong>SMCompany</strong> to deliver quality and value every step of the way.</p>
+        </div>
+    </section>
+
+    <br><br><br><br><br><br><br><br>
+
+    <section id="about" class="section-offset">
+        <h2>TEAM:</h2>
+
+        <div class="team-member ">
+            <img src="manu.jpeg" alt="Team Member 1" class="team-photo">
+            <ss class="team-info">
+                <h3>TEAM LEADER</h3>
+                <p><b>Name:-</b><u><i>Manshri Aadhau</i></u></p>
+                <p><b>Roll No:-</b><u>2</u></p>
+                <p><b>Section:-</b><u>A</u></p>
+                <p><b>Deparment:-</b><U>CSE</U></p>
+                <p><b>Email:-</b><U></U></p>
+
+            </ss>
+        </div>
+
+        <div class="team-member ">
+            <img src="shlok.jpg" alt="Team Member 2" class="team-photo">
+            <ss class="team-info">
+                <h3>WEB DEVELOPER</h3>
+                <p><b>Name:-</b><u><i>Shlok Mankar</i></u></p>
+                <p><b>Roll No:-</b><u>36</u></p>
+                <p><b>Section:-</b><u>A</u></p>
+                <p><b>Deparment:-</b><U>CSE</U></p>
+                <p><b>Email:-</b><U>spmankar2005@gmail.com</U></p>
+
+            </ss>
+        </div>
+        <div class="team-member ">
+            <img src="nandu.jpeg" alt="Team Member 1" class="team-photo">
+            <ss class="team-info">
+                <h3>TEAM MEMBER</h3>
+                <p><b>Name:-</b><u><i>Nandini Gadage</i></u></p>
+                <p><b>Roll No:-</b><u>13</u></p>
+                <p><b>Section:-</b><u>A</u></p>
+                <p><b>Deparment:-</b><U>CSE</U></p>
+                <p><b>Email:-</b><U></U></p>
+            </ss>
+        </div>
+        <div class="team-member ">
+            <img src="deva.jpeg" alt="Team Member 1" class="team-photo">
+            <ss class="team-info" >
+                <h3>TEAM MEMBER</h3>
+                <p><b>Name:-</b><u><i>Devashish Sanap</i></u></p>
+                <p><b>Roll No:-</b><u>55</u></p>
+                <p><b>Section:-</b><u>A</u></p>
+                <p><b>Deparment:-</b><U>CSE</U></p>
+                <p><b>Email:-</b><U></U></p>
+            </ss>
+
+        </div>
+        <div class="team-member ">
+            <img src="vedu.jpeg" alt="Team Member 1" class="team-photo">
+            <ss class="team-info" >
+                <h3>TEAM MEMBER</h3>
+                <p><b>Name:-</b><u><i>Vaidehi Nagolkar</i></u></p>
+                <p><b>Roll No:-</b><u>45</u></p>
+                <p><b>Section:-</b><u>A</u></p>
+                <p><b>Deparment:-</b><U>CSE</U></p>
+                <p><b>Email:-</b><U></U></p>
+            </ss>
+        </div>
+
+        <!-- Repeat the above structure for additional team members -->
+
+    </section>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const zoomInElements = document.querySelectorAll('.zoom-in');
+
+            function checkVisibility() {
+                zoomInElements.forEach(el => {
+                    const elementPosition = el.getBoundingClientRect().top;
+                    const viewHeight = window.innerHeight;
+
+                    if (elementPosition < viewHeight - 100) {
+                        el.classList.add('visible');
+                    } else {
+                        el.classList.remove('visible');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', checkVisibility);
+            checkVisibility(); // Run on page load to handle initial visibility
+        });
+    </script>
+    <br>
+</body>
+
+</html>
